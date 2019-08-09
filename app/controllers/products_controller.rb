@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     if params[:filter] = "most_recent"
       @products = Product.most_recent
       render :index
-    else
+    elsif params[:filter] = nil
       @products = Product.all
       render :index
     end
