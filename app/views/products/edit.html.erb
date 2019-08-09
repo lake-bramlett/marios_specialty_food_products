@@ -3,3 +3,7 @@
 <%= render "layouts/partials/product_form" %>
 
 <p><%= link_to "Delete product", product_path(@product), :data => {:confirm => "Delete #{@product.name}?", :method => "delete"} %> </p>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "Back to Products", products_path %></p>
+<% end %>

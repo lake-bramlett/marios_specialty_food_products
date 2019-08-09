@@ -5,3 +5,9 @@
 <p><%= link_to "Edit product", edit_product_path %></p>
 
 <h3>Reviews:</h3>
+
+<p><%= link_to "Add a review", new_product_review_path %></p>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "Back to Products", products_path %></p>
+<% end %>
