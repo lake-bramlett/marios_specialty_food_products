@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
 
   def index
-    if params[:filter] = "most_recent"
+    case params[:filter]
+    when "most_recent"
       @products = Product.most_recent
-      render :index
-    elsif params[:filter] = nil
+    else
       @products = Product.all
-      render :index
     end
+    render :index
   end
 
   def new
