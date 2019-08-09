@@ -3,5 +3,5 @@
 <%= render "layouts/partials/review_form" %>
 
 <% content_for(:nav) do %>
-  <p><%= link_to "Back to #{@product.name}", product_path %></p>
+  <p><%= link_to "Back to #{@product.name}", product_path(@product) %></p>
 <% end %>

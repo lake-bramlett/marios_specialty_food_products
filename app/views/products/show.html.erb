@@ -5,8 +5,20 @@
 <p><%= link_to "Edit product", edit_product_path %></p>
 
 <h3>Reviews:</h3>
+<% if @product.reviews.any? %>
+  <ul>
+    <% @product.reviews.each do |review| %>
+      <li><p><strong><%= review.author %></strong> said:</p>
+        <blockquote>"<%= review.content_body %>"</blockquote>
+        <p><strong>Rating:</strong>  <%= review.rating %>/10
+      </li>
+    <% end %>
+    <% else %>
+      <p>No reviews at this time</p>
+    <% end %>
+  </ul>
 
-<p><%= link_to "Add a review", new_product_review_path %></p>
+<p><%= link_to "Add a review", new_product_review_path(@product) %></p>
 
 <% content_for(:nav) do %>
   <p><%= link_to "Back to Products", products_path %></p>
