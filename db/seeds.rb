@@ -1,6 +1,6 @@
 Product.destroy_all
 
-10.times do |index|
+50.times do |index|
   Product.create!(name: Faker::Commerce.product_name,
                         cost: Faker::Number.decimal(l_digits: 2),
                         country_of_origin: Faker::Address.country)
