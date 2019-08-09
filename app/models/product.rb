@@ -13,6 +13,10 @@ class Product < ApplicationRecord
     .limit(1)
   end
 
+  def self.by_country
+    where(country_of_origin: "United States")
+  end
+
   def self.most_recent
     order(created_at: :desc).limit(3)
   end

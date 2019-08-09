@@ -10,6 +10,6 @@
 <% else %>
   <p>There are no products yet.</p>
 <% end %>
-<p>Filter by: <%= link_to "All", products_path %> | <%= link_to "3 most recent", products_path(:filter => "most_recent") %></p>
+<p>Filter by: <%= link_to "All", products_path %> | <%= link_to "3 most recent", products_path(:filter => "most_recent") %> | <%= link_to "By Country: United States", products_path(:filter => "by_country") %></p>
 
 <p><%= link_to "Add a product", new_product_path %></p>

@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
     case params[:filter]
     when "most_recent"
       @products = Product.most_recent
+    when "by_country"
+      @products = Product.by_country
     else
       @products = Product.all
     end
