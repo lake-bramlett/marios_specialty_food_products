@@ -1,0 +1,9 @@
+<h1>Edit Review</h1>
+
+<%= render "layouts/partials/product_form" %>
+
+<p><%= link_to "Delete review", product_review_path(@product, @review), :data => {:confirm => "Delete Review?", :method => "delete"} %> </p>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "Back to #{@product.name}", product_path(@product) %></p>
+<% end %>

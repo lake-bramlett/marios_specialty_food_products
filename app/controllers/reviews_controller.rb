@@ -15,6 +15,18 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:product_id])
+    @review = Review.find(params[:id])
+    :edit
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to product_path(@review.product)
+  end
+
   private
   def review_params
     params.require(:review).permit(:author, :content_body, :rating)
