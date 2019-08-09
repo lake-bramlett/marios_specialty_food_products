@@ -1,0 +1,5 @@
+<h1>Edit <%= @product.name %></h1>
+
+<%= render "layouts/partials/product_form" %>
+
+<p><%= link_to "Delete product", product_path(@product), :data => {:confirm => "Delete #{@product.name}?", :method => "delete"} %> </p>
