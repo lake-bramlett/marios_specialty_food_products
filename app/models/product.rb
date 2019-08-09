@@ -13,6 +13,10 @@ class Product < ApplicationRecord
     .limit(1)
   end
 
+  def self.most_recent
+    order(created_at: :desc).limit(3)
+  end
+
   private
   def titleize_product
     self.name = self.name.titleize
