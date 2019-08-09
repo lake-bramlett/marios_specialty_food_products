@@ -6,6 +6,13 @@ class Product < ApplicationRecord
 
   before_save(:titleize_product)
 
+  def self.most_reviews
+    select("* FROM products, count(reviews.id) as reviews_count")
+    .join(:reviews)
+    .order("reviews_count DESC")
+    .limit(1)
+  end
+
   private
   def titleize_product
     self.name = self.name.titleize
