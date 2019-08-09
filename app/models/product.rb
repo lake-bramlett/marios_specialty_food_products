@@ -13,8 +13,8 @@ class Product < ApplicationRecord
     .limit(1)
   end
 
-  def self.most_recent
-    order(created_at: :desc).limit(3)
+  def self.most_recent(limit)
+    order(created_at: :desc).limit(limit)
   end
 
   private
