@@ -10,7 +10,7 @@
     <% @product.reviews.each do |review| %>
       <li><p><strong><%= review.author %></strong> said:</p>
         <blockquote>"<%= review.content_body %>"</blockquote>
-        <p><strong>Rating:</strong>  <%= review.rating %>/10
+        <p><strong>Rating:</strong>  <%= review.rating %>/5
         <p><%= link_to "Edit review", edit_product_review_path(@product, review.id) %></p>
       </li>
     <% end %>
