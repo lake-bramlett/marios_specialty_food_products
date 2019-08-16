@@ -1,21 +1,26 @@
 <h1>Products:</h1>
-
-<% if @products.any? %>
+<div class="product-container">
+  <% if @products.any? %>
   <ul>
-    <p>Product | Cost | Country of Origin</p>
     <% @products.each do |product| %>
     <li class="product-card">
-      <% if product.product_image.attached? %>
-        <%= image_tag product.product_image %>
+      <div class="product-card-image">
+        <% if product.product_image.attached? %>
+          <%= image_tag product.product_image %>
         <% else %>
-        <p>no photo available</p>
+          <%= image_tag("no_photo.png") %>
         <% end %>
-      <%= link_to product.name, product_path(product) %> | $<%= product.cost %> | <%= product.country_of_origin %></li>
+      </div>
+      <div class="product-card-info">
+        <%= link_to product.name, product_path(product) %> | $<%= product.cost %> | <%= product.country_of_origin %>
+      </div>
+      </li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p>There are no products yet.</p>
     <% end %>
-  </ul>
-<% else %>
-  <p>There are no products yet.</p>
-<% end %>
+</div>
 <p>Filter by: <%= link_to "All", products_path %> | <%= link_to "3 most recent", products_path(:filter => "most_recent") %> | <%= link_to "By Country: United States", products_path(:filter => "by_country") %></p>
 
 <p><%= link_to "Add a product", new_product_path %></p>
