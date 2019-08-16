@@ -1,0 +1,6 @@
+.product-card {
+  display: inline-block;
+  border: 1px solid #000000;
+  width: 10rem;
+  height: 10rem;
+}

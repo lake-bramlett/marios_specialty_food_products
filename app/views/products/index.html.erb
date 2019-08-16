@@ -4,7 +4,13 @@
   <ul>
     <p>Product | Cost | Country of Origin</p>
     <% @products.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %> | $<%= product.cost %> | <%= product.country_of_origin %></li>
+    <li class="product-card">
+      <% if product.product_image.attached? %>
+        <%= image_tag product.product_image %>
+        <% else %>
+        <p>no photo available</p>
+        <% end %>
+      <%= link_to product.name, product_path(product) %> | $<%= product.cost %> | <%= product.country_of_origin %></li>
     <% end %>
   </ul>
 <% else %>
