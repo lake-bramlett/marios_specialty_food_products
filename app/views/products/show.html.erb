@@ -2,7 +2,9 @@
 <h2>Cost: $<%= @product.cost %></h2>
 <h2>Country of Origin: <%= @product.country_of_origin %></h2>
 
-<p><%= link_to "Edit product", edit_product_path %></p>
+<% if current_user.admin? %>
+  <p><%= link_to "Edit product", edit_product_path %></p>
+<% end %>
 
 <% if @product.product_image.attached? %>
  <%= image_tag @product.product_image %>
@@ -18,7 +20,9 @@
       <li><p><strong><%= review.author %></strong> said:</p>
         <blockquote>"<%= review.content_body %>"</blockquote>
         <p><strong>Rating:</strong>  <%= review.rating %>/5
-        <p><%= link_to "Edit review", edit_product_review_path(@product, review.id) %></p>
+        <% if current_user.admin? %>
+          <p><%= link_to "Edit review", edit_product_review_path(@product, review.id) %></p>
+        <% end %>
       </li>
     <% end %>
     <% else %>
