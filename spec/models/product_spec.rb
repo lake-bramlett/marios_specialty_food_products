@@ -21,8 +21,9 @@ describe Product do
     expect(product.name).to(eq("Bigger Hat"))
   end
   it("should delete a product") do
-    product = Product.create({name: "big hat", cost: 12.21, country_of_origin: "United States"})
-    product.destroy
-    expect(product).to(eq(nil))
+    product_one = Product.create({name: "big hat", cost: 12.21, country_of_origin: "United States"})
+    product_two = Product.create({name: "bigger hat", cost: 21.12, country_of_origin: "United States"})
+    product_one.destroy
+    expect(Product.all).to(eq([product_two]))
   end
 end
