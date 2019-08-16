@@ -9,7 +9,7 @@
 <% if @product.product_image.attached? %>
  <%= image_tag @product.product_image %>
 <% else %>
- <p>image not attached</p>
+ <%= image_tag "no_photo.png" %>
 <% end %>
 
 

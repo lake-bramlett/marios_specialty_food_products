@@ -4,6 +4,7 @@
   width: 10rem;
   height: 11rem;
   margin-bottom: .5rem;
+  text-align: center;
 }
 
 
@@ -17,5 +18,5 @@
 }
 
 .product-card:hover .product-card-info {
-  display: inherit;
+  display: initial;
 }
