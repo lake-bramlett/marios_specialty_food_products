@@ -13,8 +13,13 @@
     <header>
       <nav>
         <%= yield :nav %>
+        <%= render 'devise/menu/user_name' %>
+        <%= render 'devise/menu/registration_items' %>
+        <%= render 'devise/menu/login_items' %>
       </nav>
     </header>
     <%= yield %>
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
   </body>
 </html>
