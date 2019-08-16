@@ -12,10 +12,11 @@
   <body>
     <header>
       <nav>
-        <%= yield :nav %>
-        <%= render 'devise/menu/user_name' %>
-        <%= render 'devise/menu/registration_items' %>
-        <%= render 'devise/menu/login_items' %>
+        <h1 class="headline">Mario's Speciality Food Products</h1>
+        <div class="nav">
+          <%= yield :nav %>
+          <%= render 'devise/menu/user_name' %>
+        </div>
       </nav>
     </header>
     <%= yield %>

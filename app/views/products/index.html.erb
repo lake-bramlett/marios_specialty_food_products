@@ -1,4 +1,3 @@
-<h1>Products:</h1>
 <div class="product-container">
   <% if @products.any? %>
   <ul>
@@ -24,3 +23,7 @@
 <p>Filter by: <%= link_to "All", products_path %> | <%= link_to "3 most recent", products_path(:filter => "most_recent") %> | <%= link_to "By Country: United States", products_path(:filter => "by_country") %></p>
 
 <p><%= link_to "Add a product", new_product_path %></p>
+
+<% content_for(:nav) do %>
+  <p><%= link_to "Home", products_path %></p>
+<% end %>

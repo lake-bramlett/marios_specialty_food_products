@@ -2,6 +2,14 @@ nav {
   border-bottom: 1px solid #000000;
 }
 
+nav.nav {
+  display: inline-block;
+}
+
+.headline {
+  text-align: center;
+}
+
 .product-container {
   height: 30rem;
   overflow: scroll;
