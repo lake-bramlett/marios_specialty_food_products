@@ -12,11 +12,3 @@
   width: 100%;
   height: auto;
 }
-
-.product-card-info {
-  display: none;
-}
-
-.product-card:hover .product-card-info {
-  display: initial;
-}

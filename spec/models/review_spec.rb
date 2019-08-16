@@ -1,13 +1,6 @@
 require 'rails_helper'
 
 describe Review do
-  before(:each) do
-    product = Product.create({name: "big hat", cost: 12.21, country_of_origin: "United States"})
-    product.save!
-  end
-  after(:each) do
-    Product.detroy.all
-  end
   it { should validate_presence_of :author }
   it { should validate_presence_of :content_body }
   it { should validate_presence_of :rating }

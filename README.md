@@ -23,25 +23,24 @@ _'Marios Speciality Food Products' is an application used to add, update, delete
 * _Make any pull requests to https://github.com/lake-bramlett/marios_specialty_food_products ._
 
 ## Specs
-|Spec|Input|Output|
-|---- |:---:|----:|
-|returns the name of the volunteer | Volunteer.new({:name => 'Jane', :project_id => 1, :hours => 0, :id => nil}) | 'Jane' |
-|returns the project_id of the volunteer | Volunteer.new({:name => 'Jane', :project_id => 1, :hours => 0, :id => nil}) | true |
-|checks for equality based on the name of a volunteer | volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :hours => 0, :id => nil}); volunteer2 = Volunteer.new({:name => 'Jane', :project_id => 1, :hours => 0, :id => nil})| true |
-|returns all volunteers|volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :hours => 0, :id => nil});volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :hours => 0, :id => nil})|[volunteer1, volunteer2]|
-|adds a volunteer to the database|Volunteer.new({:name => 'Jane', :project_id => 1, :hours => 0, :id => nil}|[volunteer1]|
-|returns a volunteer by id|volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :hours => 0, :id => nil}); Volunteer.find(volunteer1.id) |volunteer1 |
-|returns the project title|Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil})|'Teaching Kids to Code'|
-|returns the id of the project before saving project|Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil})|nil|
-|returns the id of the project after saving project|Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil})| An Integer |
-|is the same project if two projects have the same title|project1 = Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil});project2 = Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil})|true|
-|is empty to start|Project.all|[]|
-|returns all projects|project1 = Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil});project2 = Project.new({:title => 'Teaching Ruby to Kids', :total_hours => 0, :id => nil});Project.all|[project1, project2]|
-|saves a project to the database|project = Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil});Project.all|[project]|
-|returns a project by id|project1 = Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil});Project.find(project1.id)|project1|
-|returns all volunteers for a specific project|project = Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil});volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => project.id, :hours => 0, :id => nil});volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project.id, :hours => 0, :id => nil});project.volunteers|volunteer1, volunteer2]|
-|allows a user to update a project|project = Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil});project.update({:title => 'Teaching Ruby to Kids', :total_hours => 0, :id => nil})|project.title == 'Teaching Ruby to Kids'|
-|allows a user to delete a project|project = Project.new({:title => 'Teaching Kids to Code', :total_hours => 0, :id => nil}); project.delete|Project.all == []|
+
+### Users
+* All users will start off as non-admins by default
+
+### Products
+* Only admins can create, edit, and delete products.
+* All users can view products
+* Products will contain Product name, price, and country of origin.
+* Products will have optional picture that will be uploaded at time of creation or added later.
+* New products will appear in the root index.
+* Products will have their names capitalized upon creation.
+
+### Reviews
+* All users can add and view reviews
+* Review can be seen on the specific product pages when navigated
+* Reviews will contain Author, body, and rating information
+* Only admins can edit and delete reviews.
+
 
   ## Known Bugs
 
