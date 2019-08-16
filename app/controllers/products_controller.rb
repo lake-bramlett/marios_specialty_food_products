@@ -3,9 +3,9 @@ class ProductsController < ApplicationController
   def index
     case params[:filter]
     when "most_recent"
-      @products = Product.most_recent
+      @products = Product.most_recent(3)
     when "by_country"
-      @products = Product.by_country
+      @products = Product.by_country("United States of America")
     else
       @products = Product.all
     end

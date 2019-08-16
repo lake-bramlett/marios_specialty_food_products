@@ -6,21 +6,10 @@ class Product < ApplicationRecord
 
   before_save(:titleize_product)
 
-  def self.most_reviews
-    select("* FROM products, count(reviews.id) as reviews_count")
-    .join(:reviews)
-    .order("reviews_count DESC")
-    .limit(1)
-  end
-
-  def self.by_country
-    where(country_of_origin: "United States")
-  end
-
-  def self.most_recent
-    order(created_at: :desc).limit(3)
-  end
-
+  scope :most_reviews, -> (limit) { select("* FROM products, count(reviews.id) as reviews_count").join(:reviews).order("reviews_count DESC").limit(limit) }
+  scope :most_recent, -> (limit) { order(created_at: :desc).limit(limit) }
+  scope :by_country, -> (country) { where(country_of_origin: country) }
+  
   private
   def titleize_product
     self.name = self.name.titleize
