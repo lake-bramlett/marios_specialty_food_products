@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     when "by_country"
       @products = Product.by_country("United States of America")
     else
-      @products = Product.all
+      @products = Product.alphabetical_name
     end
     render :index
   end

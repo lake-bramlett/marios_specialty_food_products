@@ -11,14 +11,7 @@ class Product < ApplicationRecord
   scope :most_reviews, -> (limit) { select("* FROM products, count(reviews.id) as reviews_count").join(:reviews).order("reviews_count DESC").limit(limit) }
   scope :most_recent, -> (limit) { order(created_at: :desc).limit(limit) }
   scope :by_country, -> (country) { where(country_of_origin: country) }
-
-  def background_image
-    if self.product_image.attached?
-      return url_for(self.product_image)
-    else
-      return "url_for(no_photo.png)"
-    end
-  end
+  scope :alphabetical_name, -> { order(name: :asc) }
 
   private
   def titleize_product
