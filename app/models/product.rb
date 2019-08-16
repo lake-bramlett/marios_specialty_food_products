@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  has_one_attached :product_image
+  
   validates :name, presence: true
   validates :cost, presence: true, format: { with: /\A\d+(?:\.\d{2})?\z/ }, numericality: { greater_than: 0, less_than: 1000000 }
   validates :country_of_origin, presence: true

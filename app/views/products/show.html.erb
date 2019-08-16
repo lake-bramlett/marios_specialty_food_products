@@ -4,6 +4,10 @@
 
 <p><%= link_to "Edit product", edit_product_path %></p>
 
+<% if @product.product_image? %>
+  <%= image_tag @product.product_image %>
+<% end %>
+
 <h3>Reviews:</h3>
 <% if @product.reviews.any? %>
   <ul>
