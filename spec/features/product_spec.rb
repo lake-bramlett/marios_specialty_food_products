@@ -3,6 +3,8 @@ require 'rails_helper'
 describe "the add product process" do
 
   it "adds a new product" do
+    user = FactoryBot.create(:user)
+    login_as(user, :scope => :user)
     visit root_path
     click_link 'Add a product'
     fill_in 'Name', :with => 'Cheeseburger'
@@ -18,6 +20,8 @@ end
 
 describe "the edit a product process" do
   it "edits a pre-existing album" do
+    user = FactoryBot.create(:user)
+    login_as(user, :scope => :user)
     visit root_path
     click_link 'Add a product'
     fill_in 'Name', :with => 'Cheeseburger'
@@ -36,6 +40,8 @@ end
 
 describe "the delete a product process" do
   it "deletes a pre-existing album" do
+    user = FactoryBot.create(:user)
+    login_as(user, :scope => :user)
     visit root_path
     click_link 'Add a product'
     fill_in 'Name', :with => 'Cheeseburger'

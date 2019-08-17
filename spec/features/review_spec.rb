@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe "the add review process" do
   it "adds a review to a product" do
+    user = FactoryBot.create(:user)
+    login_as(user, :scope => :user)
     visit root_path
     click_link 'Add a product'
     fill_in 'Name', :with => 'Cheeseburger'
@@ -22,6 +24,8 @@ end
 
 describe "the edit review process" do
   it "edit a review to a product" do
+    user = FactoryBot.create(:user)
+    login_as(user, :scope => :user)
     visit root_path
     click_link 'Add a product'
     fill_in 'Name', :with => 'Cheeseburger'
@@ -45,6 +49,8 @@ end
 
 describe "the delete review process" do
   it "delete a review to a product" do
+    user = FactoryBot.create(:user)
+    login_as(user, :scope => :user)
     visit root_path
     click_link 'Add a product'
     fill_in 'Name', :with => 'Cheeseburger'
